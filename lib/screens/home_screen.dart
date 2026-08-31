@@ -22,8 +22,8 @@ class HomeScreen extends StatelessWidget {
                 letterSpacing: 1.5,
               ),
             ),
-            GestureDetector(
-              onTap: () {
+            IconButton(
+              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 );
               },
-              child: Icon(Icons.search_rounded, color: Colors.white),
+              icon: Icon(Icons.search_rounded, color: Colors.white),
             ),
           ],
         ),
