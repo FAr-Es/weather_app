@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/widget/no_weather_available.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -34,8 +33,16 @@ class SearchScreen extends StatelessWidget {
         padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
         child: Center(
           child: TextField(
+            onChanged: (value) {
+              
+            },
             autofocus: true,
             decoration: InputDecoration(
+              labelText: "Search",
+              labelStyle: TextStyle(color: Colors.grey[600]),
+              suffixIcon: Icon(Icons.search),
+              hintText: "Enter city name",
+              hintStyle: TextStyle(color: Colors.grey[600]),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.black, width: 2),
                 borderRadius: BorderRadius.circular(8)
