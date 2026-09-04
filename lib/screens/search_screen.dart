@@ -5,7 +5,7 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController city;
+     String city;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -33,8 +33,8 @@ class SearchScreen extends StatelessWidget {
         padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
         child: Center(
           child: TextField(
-            onChanged: (value) {
-              
+            onSubmitted: (value) {
+              city = value;
             },
             autofocus: true,
             decoration: InputDecoration(
