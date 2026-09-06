@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/model/weather_model.dart';
+import 'package:weather_app/screens/search_screen.dart';
 
 class WeatherDetails extends StatelessWidget {
-  const WeatherDetails({super.key});
+  const WeatherDetails({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +18,21 @@ class WeatherDetails extends StatelessWidget {
         ),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset("assets/weather.png"),
+          
+          //Image.network(weatherModel.imageUrl ?? ""),
           Text(
-            "19°",
+            "${weatherModel.avgTemp}°",
             style: TextStyle(
               color: Colors.white,
               fontSize: 64,
               fontWeight: FontWeight.w500,
             ),
           ),
+          SizedBox(height: 16),
           Text(
-            "Precipitations",
+            weatherModel.condition,
             style: TextStyle(
               color: Colors.white,
               fontSize: 24,
@@ -35,8 +40,9 @@ class WeatherDetails extends StatelessWidget {
               letterSpacing: 0.47,
             ),
           ),
+          SizedBox(height: 16),
           Text(
-            "Max: 12°   Min: 13°",
+            "Max: ${weatherModel.maxTemp}°   Min: ${weatherModel.minTemp}°",
             style: TextStyle(
               color: Colors.white,
               fontSize: 24,
@@ -62,7 +68,7 @@ class WeatherDetails extends StatelessWidget {
               ),
               SizedBox(width: 100),
               Text(
-                "Jul, 21",
+                weatherModel.lastUpdated,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,

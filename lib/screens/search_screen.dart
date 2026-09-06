@@ -1,11 +1,13 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_app/model/weather_model.dart';
+import 'package:weather_app/services/weather_services.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-     String city;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -33,8 +35,10 @@ class SearchScreen extends StatelessWidget {
         padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
         child: Center(
           child: TextField(
-            onSubmitted: (value) {
-              city = value;
+            onSubmitted: (value) async{
+              weatherModel = await
+              WeatherServices(dio: Dio()).getWeather(location: value);
+              Navigator.pop(context);
             },
             autofocus: true,
             decoration: InputDecoration(
@@ -58,3 +62,5 @@ class SearchScreen extends StatelessWidget {
     );
   }
 }
+
+WeatherModel? weatherModel;
