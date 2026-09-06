@@ -23,7 +23,7 @@ class WeatherDetails extends StatelessWidget {
           
           //Image.network(weatherModel.imageUrl ?? ""),
           Text(
-            "${weatherModel.avgTemp}°",
+            "${weatherModel!.avgTemp}°",
             style: TextStyle(
               color: Colors.white,
               fontSize: 64,
@@ -32,7 +32,7 @@ class WeatherDetails extends StatelessWidget {
           ),
           SizedBox(height: 16),
           Text(
-            weatherModel.condition,
+            weatherModel!.condition,
             style: TextStyle(
               color: Colors.white,
               fontSize: 24,
@@ -42,7 +42,7 @@ class WeatherDetails extends StatelessWidget {
           ),
           SizedBox(height: 16),
           Text(
-            "Max: ${weatherModel.maxTemp}°   Min: ${weatherModel.minTemp}°",
+            "Max: ${weatherModel!.maxTemp}°   Min: ${weatherModel!.minTemp}°",
             style: TextStyle(
               color: Colors.white,
               fontSize: 24,
@@ -68,7 +68,7 @@ class WeatherDetails extends StatelessWidget {
               ),
               SizedBox(width: 100),
               Text(
-                weatherModel.lastUpdated,
+                weatherModel!.lastUpdated,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
