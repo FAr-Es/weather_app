@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/model/weather_model.dart';
 import 'package:weather_app/screens/search_screen.dart';
 
 class WeatherDetails extends StatelessWidget {
