@@ -39,9 +39,7 @@ class HomeScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.black,
       ),
-      body: weatherModel == null 
-      ? NoWeatherAvailable() 
-      : WeatherDetails(),
+      body: NoWeatherAvailable(),
     );
   }
 }

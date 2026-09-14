@@ -36,8 +36,7 @@ class SearchScreen extends StatelessWidget {
         child: Center(
           child: TextField(
             onSubmitted: (value) async{
-              weatherModel = await
-              WeatherServices(dio: Dio()).getWeather(location: value);
+              
               Navigator.pop(context);
             },
             autofocus: true,
@@ -63,4 +62,3 @@ class SearchScreen extends StatelessWidget {
   }
 }
 
-WeatherModel? weatherModel;
