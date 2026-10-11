@@ -1,7 +1,4 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_app/model/weather_model.dart';
-import 'package:weather_app/services/weather_services.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
