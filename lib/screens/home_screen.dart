@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
           } else if (state is WeatherInintialState) {
             return NoWeatherAvailable();
           } else if (state is WeatherLoadedState) {
-            return WeatherDetails(weatherModel: state.weatherModel);
+            return WeatherDetails();
           } else {
             return Center(child: Text("There is an error.."));
           }

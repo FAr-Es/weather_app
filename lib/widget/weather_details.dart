@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/model/weather_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
 
 class WeatherDetails extends StatelessWidget {
-  const WeatherDetails({super.key, required this.weatherModel});
-  final WeatherModel weatherModel;
+  const WeatherDetails({super.key});
   @override
   Widget build(BuildContext context) {
+    var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
     return Container(
       width: double.infinity,
       height: double.infinity,
