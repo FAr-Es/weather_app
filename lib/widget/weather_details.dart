@@ -20,8 +20,16 @@ class WeatherDetails extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          
-          Image.network(weatherModel.imageUrl ?? ""),
+          Text(
+            "${weatherModel.location}°",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 50,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 16,),
+          Image.network("https:${weatherModel.imageUrl}"),
           Text(
             "${weatherModel.avgTemp}°",
             style: TextStyle(

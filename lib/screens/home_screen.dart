@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
           } else if (state is WeatherLoadedState) {
             return WeatherDetails();
           } else {
-            return Center(child: Text("There is an error.."));
+            return Center(child: Text("City not found try searching again ..."));
           }
         },
       ),
