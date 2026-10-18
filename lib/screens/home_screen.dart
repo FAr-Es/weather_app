@@ -13,33 +13,31 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "Weathery",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 1.5,
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return SearchScreen();
-                    },
-                  ),
-                );
-              },
-              icon: Icon(Icons.search_rounded),
-            ),
-          ],
+        title: Text(
+          "Weathery",
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.w700,
+            letterSpacing: 1.5,
+          ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SearchScreen();
+                  },
+                ),
+              );
+            },
+            icon: Icon(Icons.search_rounded),
+          ),
+        ],
       ),
+
       body: BlocBuilder<GetWeatherCubit, WeatherState>(
         builder: (context, state) {
           if (state is WeatherLoadingState) {
@@ -49,7 +47,9 @@ class HomeScreen extends StatelessWidget {
           } else if (state is WeatherLoadedState) {
             return WeatherDetails();
           } else {
-            return Center(child: Text("City not found try searching again ..."));
+            return Center(
+              child: Text("City not found try searching again ..."),
+            );
           }
         },
       ),

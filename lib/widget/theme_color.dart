@@ -59,7 +59,7 @@ MaterialColor themeColor(String? condition) {
     case "light rain shower":
     case "moderate or heavy rain shower":
     case "torrential rain shower":
-      return Colors.blue;
+      return Colors.grey;
 
     // 🌨️ Snow and blizzards
     case "blowing snow":
