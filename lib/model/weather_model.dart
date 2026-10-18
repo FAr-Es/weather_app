@@ -1,6 +1,6 @@
 class WeatherModel {
   final String location;
-  final String lastUpdated;
+  final DateTime lastUpdated;
   final double maxTemp;
   final double minTemp;
   final double avgTemp;
@@ -17,15 +17,15 @@ class WeatherModel {
     this.imageUrl,
   });
 
-  factory WeatherModel.fromJson(json){
+  factory WeatherModel.fromJson(json) {
     return WeatherModel(
-      location : json['location']['name'],
-      lastUpdated : json['current']['last_updated'],
-      maxTemp : json['forecast']['forecastday'][0]['day']['maxtemp_c'],
-      minTemp : json['forecast']['forecastday'][0]['day']['mintemp_c'],
-      avgTemp : json['forecast']['forecastday'][0]['day']['avgtemp_c'],
-      condition : json['current']['condition']['text'],
-      imageUrl : json['current']['condition']['icon'] ?? "",
+      location: json['location']['name'],
+      lastUpdated: DateTime.parse(json['current']['last_updated']),
+      maxTemp: json['forecast']['forecastday'][0]['day']['maxtemp_c'],
+      minTemp: json['forecast']['forecastday'][0]['day']['mintemp_c'],
+      avgTemp: json['forecast']['forecastday'][0]['day']['avgtemp_c'],
+      condition: json['current']['condition']['text'],
+      imageUrl: json['current']['condition']['icon'] ?? "",
     );
-}}
- 
+  }
+}

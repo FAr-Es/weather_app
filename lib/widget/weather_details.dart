@@ -76,7 +76,7 @@ class WeatherDetails extends StatelessWidget {
               ),
               SizedBox(width: 100),
               Text(
-                weatherModel.lastUpdated,
+                "${weatherModel.lastUpdated.hour} : ${weatherModel.lastUpdated.minute}",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
