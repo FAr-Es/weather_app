@@ -16,15 +16,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => GetWeatherCubit(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          //primarySwatch: themeColor();
-        ),
-        home: HomeScreen(),
-      ),
+      child: CustomMaterialApp(),
     );
   }
   
 
+}
+
+class CustomMaterialApp extends StatelessWidget {
+  const CustomMaterialApp({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: themeColor(BlocProvider.of<GetWeatherCubit>(context).weatherModel?.condition)
+      ),
+      home: HomeScreen(),
+    );
+  }
 }

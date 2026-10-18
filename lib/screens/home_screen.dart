@@ -20,7 +20,6 @@ class HomeScreen extends StatelessWidget {
               "Weathery",
               style: TextStyle(
                 fontSize: 24,
-                color: Colors.white,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 1.5,
               ),
@@ -36,11 +35,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 );
               },
-              icon: Icon(Icons.search_rounded, color: Colors.white),
+              icon: Icon(Icons.search_rounded),
             ),
           ],
         ),
-        backgroundColor: Colors.black,
       ),
       body: BlocBuilder<GetWeatherCubit, WeatherState>(
         builder: (context, state) {

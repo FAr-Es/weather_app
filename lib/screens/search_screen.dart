@@ -12,7 +12,6 @@ class SearchScreen extends StatelessWidget {
         leading: IconButton(
           onPressed: () {},
           icon: Icon(Icons.arrow_back),
-          color: Colors.white,
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -21,14 +20,12 @@ class SearchScreen extends StatelessWidget {
               "Search City",
               style: TextStyle(
                 fontSize: 24,
-                color: Colors.white,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 1.5,
               ),
             ),
           ],
         ),
-        backgroundColor: Colors.black,
       ),
       body: Padding(
         padding: EdgeInsetsGeometry.symmetric(horizontal: 16),

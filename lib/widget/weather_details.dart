@@ -6,7 +6,7 @@ class WeatherDetails extends StatelessWidget {
   const WeatherDetails({super.key});
   @override
   Widget build(BuildContext context) {
-    var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
+    var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel!;
     return Container(
       width: double.infinity,
       height: double.infinity,

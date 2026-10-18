@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-MaterialColor themeColor(String condition) {
+MaterialColor themeColor(String? condition) {
+  if (condition == null ){
+    return Colors.blue;
+  }
+  else{
   switch (condition.toLowerCase()) {
     // ☀️ Sunny weather
     case "sunny":
@@ -89,5 +93,5 @@ MaterialColor themeColor(String condition) {
 
     default:
       return Colors.blueGrey;
-  }
+  }}
 }
