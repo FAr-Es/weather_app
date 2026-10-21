@@ -34,7 +34,6 @@ class MyApp extends StatelessWidget {
                       context,
                     ).weatherModel?.condition,
                   ),
-                  foregroundColor: Colors.white,
                 ),
               ),
               home: HomeScreen(),
