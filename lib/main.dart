@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
+import 'package:weather_app/cubits/get_weather_cubit/get_weather_state.dart';
 import 'package:weather_app/screens/home_screen.dart';
 import 'package:weather_app/widget/theme_color.dart';
 
@@ -17,18 +18,30 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => GetWeatherCubit(),
       child: Builder(
-        builder: (context) =>  MaterialApp(
-          
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: themeColor(BlocProvider.of<GetWeatherCubit>(context).weatherModel?.condition)
+        builder: (context) => BlocBuilder<GetWeatherCubit, WeatherState>(
+          builder: (context, state) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                primarySwatch: themeColor(
+                  BlocProvider.of<GetWeatherCubit>(
+                    context,
+                  ).weatherModel?.condition,
+                ),
+                appBarTheme: AppBarTheme(
+                  backgroundColor: themeColor(
+                    BlocProvider.of<GetWeatherCubit>(
+                      context,
+                    ).weatherModel?.condition,
+                  ),
+                  foregroundColor: Colors.white,
+                ),
+              ),
+              home: HomeScreen(),
+            );
+          },
         ),
-        home: HomeScreen(),
-            ),
       ),
     );
   }
-  
-
 }
-

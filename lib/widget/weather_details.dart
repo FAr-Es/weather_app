@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
+import 'package:weather_app/widget/theme_color.dart';
 
 class WeatherDetails extends StatelessWidget {
   const WeatherDetails({super.key});
@@ -10,11 +11,11 @@ class WeatherDetails extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Color(0xFF3E2D8F), Color(0xFF9D52AC)],
+          colors: [themeColor(weatherModel.condition).shade100, themeColor(weatherModel.condition).shade800],
         ),
       ),
       child: Column(
@@ -23,17 +24,17 @@ class WeatherDetails extends StatelessWidget {
           Text(
             "${weatherModel.location}°",
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 50,
               fontWeight: FontWeight.w500,
             ),
           ),
-          SizedBox(height: 16,),
+          SizedBox(height: 16),
           Image.network("https:${weatherModel.imageUrl}"),
           Text(
             "${weatherModel.avgTemp}°",
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 64,
               fontWeight: FontWeight.w500,
             ),
@@ -42,7 +43,7 @@ class WeatherDetails extends StatelessWidget {
           Text(
             weatherModel.condition,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 24,
               fontWeight: FontWeight.w400,
               letterSpacing: 0.47,
@@ -52,7 +53,7 @@ class WeatherDetails extends StatelessWidget {
           Text(
             "Max: ${weatherModel.maxTemp}°   Min: ${weatherModel.minTemp}°",
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 24,
               fontWeight: FontWeight.w400,
               letterSpacing: 0.47,
@@ -68,7 +69,7 @@ class WeatherDetails extends StatelessWidget {
               Text(
                 "Today",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.w400,
                   letterSpacing: 0.47,
@@ -78,7 +79,7 @@ class WeatherDetails extends StatelessWidget {
               Text(
                 "${weatherModel.lastUpdated.hour} : ${weatherModel.lastUpdated.minute}",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.w400,
                   letterSpacing: 0.47,
@@ -86,7 +87,12 @@ class WeatherDetails extends StatelessWidget {
               ),
             ],
           ),
-          Divider(thickness: .4, endIndent: 16, indent: 16),
+          Divider(
+            thickness: .4,
+            endIndent: 16,
+            indent: 16,
+            color: Colors.black,
+          ),
         ],
       ),
     );
